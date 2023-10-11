@@ -80,36 +80,8 @@ while True:
         input("Enter a valid number")
 # Convert to url from
 number = f"/{passengers}adults"
-# Vacation Destination
 
-while True:
-    destination = input("Enter your desired Destination (US City): ")
-    destination = destination.title()
-    if destination in major_airports:
-        break
-    elif destination == "Chicago":
-        destination = input("Chicago Midway or Chicago O'Hare: ")
-        while destination.lower() not in ["chicago midway", "chicago o'hare"]:
-            destination = input("Please enter either 'Chicago Midway' or 'Chicago O'Hare': ")
-        break
-    elif destination == "Houston":
-        destination = input("Houston Bush or Houston William: ")
-        while destination.lower() not in ["houston bush", "houston william"]:
-            destination = input("Please enter either 'Houston Bush' or 'Houston William': ")
-        break
-    elif destination == "Washington D.C.":
-        destination = input("Washington D.C. Dulles or Washington D.C. Reagan: ")
-        while destination.lower() not in ["washington d.c. dulles", "washington d.c. reagan"]:
-            destination = input("Please enter either 'Washington D.C. Dulles' or 'Washington D.C. Reagan': ")
-        break
-    elif destination == "New York":
-        destination = input("New York Kennedy or New York LaGuardia: ")
-        while destination.lower() not in ["new york kennedy", "new york laguardia"]:
-            destination = input("Please enter either 'New York Kennedy' or 'New York LaGuardia': ")
-        break
-    else:
-        print("That city is not in our database. Please enter again")
-
+# origin
 while True:
     origin = input("Enter the city where you are traveling from (US City): ")
     origin = origin.title()
@@ -134,6 +106,35 @@ while True:
         origin = input("New York Kennedy or New York LaGuardia: ")
         while origin.lower() not in ["new york kennedy", "new york laguardia"]:
             origin = input("Please enter either 'New York Kennedy' or 'New York LaGuardia': ")
+        break
+    else:
+        print("That city is not in our database. Please enter again")
+
+# Vacation Destination
+while True:
+    destination = input("Enter your desired Destination (US City): ")
+    destination = destination.title()
+    if destination in major_airports:
+        break
+    elif destination == "Chicago":
+        destination = input("Chicago Midway or Chicago O'Hare: ")
+        while destination.lower() not in ["chicago midway", "chicago o'hare"]:
+            destination = input("Please enter either 'Chicago Midway' or 'Chicago O'Hare': ")
+        break
+    elif destination == "Houston":
+        destination = input("Houston Bush or Houston William: ")
+        while destination.lower() not in ["houston bush", "houston william"]:
+            destination = input("Please enter either 'Houston Bush' or 'Houston William': ")
+        break
+    elif destination == "Washington D.C.":
+        destination = input("Washington D.C. Dulles or Washington D.C. Reagan: ")
+        while destination.lower() not in ["washington d.c. dulles", "washington d.c. reagan"]:
+            destination = input("Please enter either 'Washington D.C. Dulles' or 'Washington D.C. Reagan': ")
+        break
+    elif destination == "New York":
+        destination = input("New York Kennedy or New York LaGuardia: ")
+        while destination.lower() not in ["new york kennedy", "new york laguardia"]:
+            destination = input("Please enter either 'New York Kennedy' or 'New York LaGuardia': ")
         break
     else:
         print("That city is not in our database. Please enter again")
