@@ -78,10 +78,11 @@ while True:
         break
     else:
         input("Enter a valid number")
+
 # Convert to url from
 number = f"/{passengers}adults"
 
-# origin
+# Origin
 while True:
     origin = input("Enter the city where you are traveling from (US City): ")
     origin = origin.title()
@@ -148,6 +149,7 @@ returning = input("Enter your return date. Format(YYYY-MM-DD): ")
 # kayak url
 kayak = f"https://www.kayak.com/flights/{major_airports[origin]}-{major_airports[destination]}/{leaving}/{returning}{number}?sort=bestflight_a&fs=price=0-{budget}"
 
+# Selenium automation
 driver = webdriver.Safari()
 
 driver.get(kayak)
@@ -178,6 +180,7 @@ for link in links:
 
 time.sleep(5)
 
+# Packages Flight Info
 trips = ""
 
 for i in range(len(departures)):
@@ -194,8 +197,8 @@ time.sleep(5)
 
 driver.quit()
 
-print(trips)
 
+# Sends Email to User
 yag = yagmail.SMTP('michaelcharles10904@gmail.com', new_password)
 contents = [trips]
 yag.send(receiver_email, 'Flight Information', contents)
