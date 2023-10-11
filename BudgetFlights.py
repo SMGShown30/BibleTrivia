@@ -1,8 +1,8 @@
 # Libraries
 import time
 from password import new_password
-from email.message import EmailMessage
 import smtplib, ssl
+import yagmail
 from selenium import webdriver
 
 # Major Airports in US
@@ -193,27 +193,8 @@ time.sleep(5)
 
 driver.quit()
 
+print(trips)
 
-email_sender = "michaelcharles10904@gmail.com"
-email_password = new_password
-
-subject = "Flight Information"
-
-body = f"""
-{trips}
-"""
-
-em = EmailMessage()
-em["From"] = email_sender
-em["To"] = receiver_email
-em["subject"] = subject
-em.set_content(body)
-
-context = ssl.create_default_context()
-
-with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as smtp:
-    smtp.login(email_sender, email_password)
-    smtp.sendmail(email_sender, receiver_email, em.as_string())
-
-
-
+yag = yagmail.SMTP('michaelcharles10904@gmail.com', new_password)
+contents = [trips]
+yag.send(receiver_email, 'Flight Information', contents)
